@@ -20,9 +20,6 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: <%= ENV.fetch('DB_HOST', 'localhost') %>
-  port: <%= ENV.fetch('DB_PORT', 5432).to_i %>
-
 
 development:
   <<: *default
@@ -74,7 +71,7 @@ test:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+  DATABASE_URL="postgres://rf:mypass@https://tranquil-wave-59173.herokuapp.com//sample_app_production"
 #
 # You can use this database configuration with:
 #
@@ -85,5 +82,5 @@ production:
   <<: *default
   database: sample_app_production
   username: rf
-  password: <%= ENV['SAMPLE_APP_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL', nil] %>
+  password: mypass
+  url: <%= ENV['DATABASE_URL'] %>
